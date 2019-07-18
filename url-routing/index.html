@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<title>URL Routing in Pure JS</title>
+</head>
+<body>
+<h1 id='caption'></h1>
+
+<a href="#home">Home</a>
+<hr>
+<a href="#js">JavaScript</a>
+<a href="#python">Python</a>
+<a href="#php">PHP</a>
+<a href="#java">Java</a>
+<hr>
+<a href="#angular">Angular</a>
+<a href="#vuejs">Vue.js</a>
+<a href="#ember">Ember</a>
+<a href="#react">React</a>
+
+<!-- https://stackoverflow.com/questions/41425826/how-to-implement-routing-with-a-single-page-application-build-solely-using-jquer -->
+  
+<script>
+	function displayHash() {
+	  var theHash = window.location.hash;
+	  if (theHash.length == 0) { theHash = "_index"; }
+	  var elems = document.querySelectorAll("#caption");
+	  elems[0].innerText = "Current Hash: " + theHash;
+	  return true;
+	}
+
+	window.addEventListener("hashchange", function() {
+	  console.log("hashchange event");
+	  displayHash();
+	});
+
+	window.addEventListener("DOMContentLoaded", function(ev) {
+	  console.log("DOMContentLoaded event");
+	  displayHash();
+	});
+</script>
+</body>
+</html>
